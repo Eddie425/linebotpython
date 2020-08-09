@@ -32,6 +32,13 @@ def callback():
 @handler.add(MessageEvent, message=TextMessage)
 def echo(event):
 
+    if event.message.text == "Hello":
+        line_bot_api.reply_message(
+            event.reply_token,
+            TextSendMessage(text="Hi 傻逼！")
+        )
+
+
     if event.source.user_id != "Udeadbeefdeadbeefdeadbeefdeadbeef":
         line_bot_api.reply_message(
             event.reply_token,
