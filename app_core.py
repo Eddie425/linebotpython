@@ -1,6 +1,8 @@
 from __future__ import unicode_literals
 import os
-from flask import Flask, request, abort
+
+from flask import Flask, request, abort, render_template
+
 from linebot import LineBotApi, WebhookHandler
 from linebot.exceptions import InvalidSignatureError
 from linebot.models import MessageEvent, TextMessage, TextSendMessage, ImageSendMessage
@@ -35,6 +37,12 @@ def callback():
         abort(400)
 
     return 'OK'
+
+
+@app.route("/")
+def home():
+    return render_template("home.html")
+
 
 # 請 pixabay 幫我們找圖
 @handler.add(MessageEvent, message=TextMessage)
