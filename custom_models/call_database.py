@@ -7,7 +7,8 @@ def web_select_overall():
     conn = psycopg2.connect(DATABASE_URL, sslmode='require')
     cursor = conn.cursor()
 
-    postgres_select_query = f"""SELECT * FROM user_account ORDER BY last_login;"""
+    postgres_select_query = f"""SELECT * FROM user_account
+    ORDER BY last_login;"""
 
     cursor.execute(postgres_select_query)
 

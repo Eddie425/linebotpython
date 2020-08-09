@@ -13,7 +13,7 @@ import urllib
 import re
 import random
 
-from .custom_models import call_database
+from custom_models import call_database
 
 app = Flask(__name__)
 
