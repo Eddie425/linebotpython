@@ -41,6 +41,37 @@ def callback():
 @handler.add(MessageEvent, message=TextMessage)
 def echo(event):
 
+try:
+
+    q_string = {'tbm': 'isch', 'q': event.message.text}
+    url = f"https://www.google.com/search?{urllib.parse.urlencode(q_string)}/"
+    headers = {'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36'}
+
+    req = urllib.request.Request(url, headers = headers)
+    conn = urllib.request.urlopen(req)
+
+    print('fetch conn finish')
+
+    pattern = 'img data-src="\S*"'
+    img_list = []
+
+    for match in re.finditer(pattern, str(conn.read())):
+        img_list.append(match.group()[14:-1])
+
+    random_img_url = img_list[random.randint(0, len(img_list)+1)]
+    print('fetch img url finish')
+    print(random_img_url)
+
+    line_bot_api.reply_message(
+        event.reply_token,
+        ImageSendMessage(
+            original_content_url=random_img_url,
+            preview_image_url=random_img_url
+        )
+    )
+
+except Exception as e:
+
     if event.message.text == "Hello":
         line_bot_api.reply_message(
             event.reply_token,
