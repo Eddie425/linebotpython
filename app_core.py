@@ -43,6 +43,11 @@ def callback():
 def home():
     return render_template("home.html")
 
+@app.route("/index")
+def index():
+    python_records = web_select_overall()
+    return render_template("index.html", html_records=python_records)
+
 
 # 請 pixabay 幫我們找圖
 @handler.add(MessageEvent, message=TextMessage)
