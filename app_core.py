@@ -8,8 +8,8 @@ from linebot.exceptions import InvalidSignatureError
 app = Flask(__name__)
 
 # LINE 聊天機器人的基本資料
-line_bot_api = LineBotApi('聊天機器人的 Chennel access token')
-handler = WebhookHandler('聊天機器人的 Channel secret')
+line_bot_api = LineBotApi('9avKOw7GijsNNXTwd3HcaD5cxa80jjkWue+YrDR8m7f9tmf7e2JjmOPyRwTrT7tkYjbzio0KjOM1ocHGgR2JHFZYxEAxN1wHRRcrxIo1iaWax7FONdhJDsu3lzrWZtZKZ5M23MJ/kgUqoLtLvKh/zgdB04t89/1O/w1cDnyilFU=')
+handler = WebhookHandler('514dc4daa432d2c264ed0ab85ad62b73')
 
 # 接收 LINE 的資訊
 @app.route("/callback", methods=['POST'])
