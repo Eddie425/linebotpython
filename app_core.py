@@ -13,6 +13,8 @@ import urllib
 import re
 import random
 
+from .custom_models import call_database
+
 app = Flask(__name__)
 
 # LINE 聊天機器人的基本資料
