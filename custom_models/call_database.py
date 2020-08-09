@@ -1,6 +1,7 @@
 import os
 import psycopg2
 
+
 def web_select_overall():
     DATABASE_URL = os.environ['DATABASE_URL']
 
