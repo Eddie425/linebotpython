@@ -2,7 +2,7 @@ import os
 import psycopg2
 
 
-class call_database(object):
+class call_database():
     """docstring for call_database."""
 
     def __init__(self, arg):
