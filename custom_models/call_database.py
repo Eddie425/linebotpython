@@ -2,27 +2,34 @@ import os
 import psycopg2
 
 
-def web_select_overall():
-    DATABASE_URL = os.environ['DATABASE_URL']
+class call_database(object):
+    """docstring for call_database."""
 
-    conn = psycopg2.connect(DATABASE_URL, sslmode='require')
-    cursor = conn.cursor()
+    def __init__(self, arg):
+        super(call_database, self).__init__()
+        self.arg = arg
 
-    postgres_select_query = f"""SELECT * FROM user_account
-    ORDER BY last_login;"""
+    def web_select_overall():
+        DATABASE_URL = os.environ['DATABASE_URL']
 
-    cursor.execute(postgres_select_query)
+        conn = psycopg2.connect(DATABASE_URL, sslmode='require')
+        cursor = conn.cursor()
 
-    message = []
-    while True:
-        temp = cursor.fetchmany(10)
+        postgres_select_query = f"""SELECT * FROM user_account
+        ORDER BY last_login;"""
 
-        if temp:
-            message.extend(temp)
-        else:
-            break
+        cursor.execute(postgres_select_query)
 
-    cursor.close()
-    conn.close()
+        message = []
+        while True:
+            temp = cursor.fetchmany(10)
 
-    return message
+            if temp:
+                message.extend(temp)
+            else:
+                break
+
+        cursor.close()
+        conn.close()
+
+        return message
