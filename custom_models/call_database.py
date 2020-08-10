@@ -2,14 +2,10 @@ import os
 import psycopg2
 
 
-class call_database():
+class call_database:
     """docstring for call_database."""
 
-    def __init__(self, arg):
-        super(call_database, self).__init__()
-        self.arg = arg
-
-    def web_select_overall():
+    def web_select_overall(self):
         DATABASE_URL = os.environ['DATABASE_URL']
 
         conn = psycopg2.connect(DATABASE_URL, sslmode='require')
