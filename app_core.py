@@ -53,7 +53,7 @@ def index():
     return render_template("index.html", html_records=python_records)
 
 
-# 請 pixabay 幫我們找圖
+# get msg from user
 @handler.add(MessageEvent, message=TextMessage)
 def pixabay_isch(event):
 
