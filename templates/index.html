@@ -141,33 +141,30 @@
                 </tr>
             </thead>
             <tbody id='discussTable'>
+                {% for record in html_records %}
+                <tr class="row">
+                    <td class="col">
+                        {{ record[0] }}
+                    </td>
                
-                <tr class="row">
+
                     <td class="col">
-                     
+                        {{ record[1] }}
+                    </td>
+
+                    <td class="col">
+                        {{ record[2] }}
+                    </td>
+
+                    <td class="col">
+                        {{ record[3] }}
+                    </td>
+
+                    <td class="col">
+                        {{ record[4] }}
                     </td>
                 </tr>
-                <tr class="row">
-                    <td class="col">
-                      
-                    </td>
-                </tr>
-                <tr class="row">
-                    <td class="col">
-                       
-                    </td>
-                </tr>
-                <tr class="row">
-                    <td class="col">
-                        
-                    </td>
-                </tr>
-                <tr class="row">
-                    <td class="col">
-                       
-                    </td>
-                </tr>
-               
+                {% endfor %}
             </tbody>
         </table>
     </div>
