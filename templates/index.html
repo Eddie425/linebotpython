@@ -120,61 +120,66 @@
             </div>
         </div>
     </section>
-    <table class='table table-striped table-dark table-hover rounded'>
-        <thead class='thead-dark rounded-top'>
-            <tr class=''>
-                <th scope='col'>貼文編號</th>
-                <th scope='col'>會員編號</th>
-                <th scope='col'>貼文內容</th>
-                <th scope='col'>貼文時間<i id="sortTime" class="fa fa-angle-double-down ml-2"></i></th>
-                <th scope='col'>按讚數</th>
-                <th scope='col'>檢舉次數<i id="sortReport" class="fa fa-angle-double-down ml-2"></i></th>
-                <th scope='col'>
-                    <form class="form-inline mr-right">
-                        <div class="md-form my-0">
-                            <input id="searchContent" class="form-control input-sm" type="text"
-                                placeholder="Search By Content" aria-label="Search">
-                            <i class="fa fa-search ml-2" aria-hidden="true" id="search"></i>
-                        </div>
-                    </form>
-                </th>
-            </tr>
-        </thead>
-        {% for record in html_records %}
-        <tbody id='discussTable'>
-            <tr class="row">
-                <td class="col">
-                    <p>{{ record[0] }}
-                    <p>
-                </td>
-            </tr>
-            <tr class="row">
-                <td class="col">
-                    <p>{{ record[1] }}
-                    <p>
-                </td>
-            </tr>
-            <tr class="row">
-                <td class="col">
-                    <p>{{ record[2] }}
-                    <p>
-                </td>
-            </tr>
-            <tr class="row">
-                <td class="col">
-                    <p>{{ record[3] }}
-                    <p>
-                </td>
-            </tr>
-            <tr class="row">
-                <td class="col">
-                    <p>{{ record[4] }}
-                    <p>
-                </td>
-            </tr>
-        </tbody>
-        {% endfor %}
-    </table>
+    <div class="mt-5" style="margin-bottom: 100px">
+        <table class='table table-striped table-dark table-hover rounded'>
+            <thead class='thead-dark rounded-top'>
+                <tr class=''>
+                    <th scope='col'>編號</th>
+                    <th scope='col'>會員名稱</th>
+                    <th scope='col'>ID</th>
+                    <th scope='col'>Email</th>
+                    <th scope='col'>Phone</th>
+                    <th scope='col'>
+                        <form class="form-inline mr-right">
+                            <div class="md-form my-0">
+                                <input id="searchContent" class="form-control input-sm" type="text"
+                                    placeholder="Search By Content" aria-label="Search">
+                                <i class="fa fa-search ml-2" aria-hidden="true" id="search"></i>
+                            </div>
+                        </form>
+                    </th>
+                </tr>
+            </thead>
+            <tbody id='discussTable'>
+                <tr class="row">
+                    {% for record in html_records %}
+                    <td class="col">
+                        { record[0] }}
+                    </td>
+                    {% endfor %}
+                </tr>
+                <tr class="row">
+                    {% for record in html_records %}
+                    <td class="col">
+                        { record[1] }}
+                    </td>
+                    {% endfor %}
+                </tr>
+                <tr class="row">
+                    {% for record in html_records %}
+                    <td class="col">
+                        { record[2] }}
+                    </td>
+                    {% endfor %}
+                </tr>
+                <tr class="row">
+                    {% for record in html_records %}
+                    <td class="col">
+                        { record[3] }}
+                    </td>
+                    {% endfor %}
+                </tr>
+                <tr class="row">
+                    {% for record in html_records %}
+                    <td class="col">
+                        { record[4] }}
+                    </td>
+                    {% endfor %}
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
 
     <!-- Signup-->
     <section class="signup-section" id="signup">
