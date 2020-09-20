@@ -1,17 +1,13 @@
 from __future__ import unicode_literals
-import os
 
 from flask import Flask, request, abort, render_template
 
 from linebot import LineBotApi, WebhookHandler
 from linebot.exceptions import InvalidSignatureError
 from linebot.models import MessageEvent, TextMessage, TextSendMessage, ImageSendMessage
-
+from timetree_sdk import TimeTreeApi
 import configparser
 
-import urllib
-import re
-import random
 import requests
 
 from custom_models import call_database
