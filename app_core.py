@@ -96,7 +96,7 @@ def callBackTimeTreeApi():
     # extracting data in json format
     # data = r.json()
 
-    responseStr = r.get_data
+    responseStr = r.text
     # extracting latitude, longitude and formatted address
     # of the first matching location
     # latitude = data['results'][0]['geometry']['location']['lat']
