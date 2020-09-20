@@ -81,7 +81,7 @@ def pixabay_isch(event):
 
 # callBackTimeTreeApi
 # 接收 LINE 的資訊
-@app.route("/callBackTimeTreeApi", methods=['POST'])
+@app.route("/callBackTimeTreeApi", methods=['GET'])
 def callBackTimeTreeApi():
     signature = request.headers['X-Line-Signature']
 
