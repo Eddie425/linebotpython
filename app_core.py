@@ -103,10 +103,10 @@ def callBackTimeTreeApi():
     # longitude = data['results'][0]['geometry']['location']['lng']
     # formatted_address = data['results'][0]['formatted_address']
 
-    try:
-        handler.handle(body, signature)
-    except InvalidSignatureError:
-        abort(400)
+    # try:
+    #     handler.handle(body, signature)
+    # except InvalidSignatureError:
+    #     abort(400)
 
     return 'OK'
 
