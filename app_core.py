@@ -96,7 +96,7 @@ def callBackTimeTreeApi():
     # extracting data in json format
     # data = r.json()
 
-    print(r)
+    responseStr = r.get_data
     # extracting latitude, longitude and formatted address
     # of the first matching location
     # latitude = data['results'][0]['geometry']['location']['lat']
@@ -108,7 +108,7 @@ def callBackTimeTreeApi():
     # except InvalidSignatureError:
     #     abort(400)
 
-    return 'OK' + r
+    return 'OK' + responseStr
 
 
 if __name__ == "__main__":
