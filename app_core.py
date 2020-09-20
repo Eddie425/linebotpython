@@ -12,6 +12,7 @@ import configparser
 import urllib
 import re
 import random
+import requests
 
 from custom_models import call_database
 
@@ -76,6 +77,39 @@ def pixabay_isch(event):
                 event.reply_token,
                 TextSendMessage(text=event.message.text)
             )
+
+
+# callBackTimeTreeApi
+# 接收 LINE 的資訊
+@app.route("/callBackTimeTreeApi", methods=['POST'])
+def callBackTimeTreeApi():
+    signature = request.headers['X-Line-Signature']
+
+    body = request.get_data(as_text=True)
+    app.logger.info("Request body: " + body)
+    # api-endpoint
+    URL = "https://timetreeapp.com/oauth/authorize?client_id=YSQLrHS4gy7nEPBQAOuYugsfDxb1UkLjV7Q5NkilEn8&response_type=code&state=04HeI1F3a2y8R_GIL50WysrtcDU7G0zRqKD6DCCB4g8"
+    # location given here
+    # location = "delhi technological university"
+    # defining a params dict for the parameters to be sent to the API
+    # PARAMS = {'address': location}
+    # sending get request and saving the response as response object
+    r = requests.get(url=URL)
+
+    # extracting data in json format
+    data = r.json()
+    # extracting latitude, longitude and formatted address
+    # of the first matching location
+    latitude = data['results'][0]['geometry']['location']['lat']
+    longitude = data['results'][0]['geometry']['location']['lng']
+    formatted_address = data['results'][0]['formatted_address']
+
+    try:
+        handler.handle(body, signature)
+    except InvalidSignatureError:
+        abort(400)
+
+    return 'OK'
 
 
 if __name__ == "__main__":
