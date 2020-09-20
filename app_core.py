@@ -83,10 +83,7 @@ def pixabay_isch(event):
 # 接收 LINE 的資訊
 @app.route("/callBackTimeTreeApi", methods=['GET'])
 def callBackTimeTreeApi():
-    signature = request.headers['X-Line-Signature']
 
-    body = request.get_data(as_text=True)
-    app.logger.info("Request body: " + body)
     # api-endpoint
     URL = "https://timetreeapp.com/oauth/authorize?client_id=YSQLrHS4gy7nEPBQAOuYugsfDxb1UkLjV7Q5NkilEn8&response_type=code&state=04HeI1F3a2y8R_GIL50WysrtcDU7G0zRqKD6DCCB4g8"
     # location given here
@@ -98,11 +95,13 @@ def callBackTimeTreeApi():
 
     # extracting data in json format
     data = r.json()
+
+    print(data)
     # extracting latitude, longitude and formatted address
     # of the first matching location
-    latitude = data['results'][0]['geometry']['location']['lat']
-    longitude = data['results'][0]['geometry']['location']['lng']
-    formatted_address = data['results'][0]['formatted_address']
+    # latitude = data['results'][0]['geometry']['location']['lat']
+    # longitude = data['results'][0]['geometry']['location']['lng']
+    # formatted_address = data['results'][0]['formatted_address']
 
     try:
         handler.handle(body, signature)
