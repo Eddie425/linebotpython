@@ -84,8 +84,10 @@ def pixabay_isch(event):
 @app.route("/callBackTimeTreeApi", methods=['GET'])
 def callBackTimeTreeApi():
 
+    csrf_token = "kjsbfckjsdnfcksdnkl"
+
     # api-endpoint
-    URL = "https://timetreeapp.com/oauth/authorize?client_id=YSQLrHS4gy7nEPBQAOuYugsfDxb1UkLjV7Q5NkilEn8&response_type=code&state=04HeI1F3a2y8R_GIL50WysrtcDU7G0zRqKD6DCCB4g8"
+    URL = "https://timetreeapp.com/oauth/authorize?client_id=YSQLrHS4gy7nEPBQAOuYugsfDxb1UkLjV7Q5NkilEn8&response_type=code&state=" + csrf_token
     # location given here
     # location = "delhi technological university"
     # defining a params dict for the parameters to be sent to the API
