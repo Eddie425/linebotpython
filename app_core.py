@@ -81,20 +81,22 @@ def pixabay_isch(event):
 def callBackTimeTreeApi():
 
     csrf_token = "kjsbfckjsdnfcksdnkl"
-
+    api = TimeTreeApi(csrf_token)
+    calendar = api.get_calendar('YSQLrHS4gy7nEPBQAOuYugsfDxb1UkLjV7Q5NkilEn8')
+    print(calendar.data.attributes.name)
+    # calendar name
     # api-endpoint
-    URL = "https://timetreeapp.com/oauth/authorize?client_id=YSQLrHS4gy7nEPBQAOuYugsfDxb1UkLjV7Q5NkilEn8&response_type=code&state=" + csrf_token
     # location given here
     # location = "delhi technological university"
     # defining a params dict for the parameters to be sent to the API
     # PARAMS = {'address': location}
     # sending get request and saving the response as response object
-    r = requests.get(url=URL)
+    # r = requests.get(url=URL)
 
     # extracting data in json format
     # data = r.json()
 
-    responseStr = r.text
+    # responseStr = r.text
     # extracting latitude, longitude and formatted address
     # of the first matching location
     # latitude = data['results'][0]['geometry']['location']['lat']
@@ -106,7 +108,7 @@ def callBackTimeTreeApi():
     # except InvalidSignatureError:
     #     abort(400)
 
-    return 'OK' + responseStr
+    # return 'OK' + responseStr
 
 
 if __name__ == "__main__":
