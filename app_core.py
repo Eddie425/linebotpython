@@ -82,7 +82,7 @@ def callBackTimeTreeApi():
 
     csrf_token = "2L85_J9K3iJ1GpB1Q9ednzzJ9JmcLnsWii4lpnAxOSotki-M"
     api = TimeTreeApi(csrf_token)
-    calendar = api.get_calendar('YSQLrHS4gy7nEPBQAOuYugsfDxb1UkLjV7Q5NkilEn8')
+    calendar = api.get_calendar('TestApi')
     print(calendar.data.attributes.name)
     # calendar name
     # api-endpoint
