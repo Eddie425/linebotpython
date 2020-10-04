@@ -1,0 +1,4 @@
+curl \
+  -H "Accept: application/vnd.timetree.v1+json" \
+  -H "Authorization: Bearer bEWJkgE2sU9-7FKEVIdItGhgw9bBGNf3wxkhHvv_moLJW9gw" \
+  https://timetreeapis.com/calendars?include=labels,members

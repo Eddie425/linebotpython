@@ -84,6 +84,8 @@ def callBackTimeTreeApi():
     api = TimeTreeApi(csrf_token)
     calendar = api.get_calendar('zizBvYcXdFur')
     print(calendar.data.attributes.name)
+    return render_template("home.html")
+
     # calendar name
     # api-endpoint
     # location given here
