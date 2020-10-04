@@ -9,6 +9,7 @@ from timetree_sdk import TimeTreeApi
 import configparser
 
 import requests
+import json
 
 from custom_models import call_database
 
@@ -85,7 +86,11 @@ def callBackTimeTreeApi():
     client_id = "YSQLrHS4gy7nEPBQAOuYugsfDxb1UkLjV7Q5NkilEn8"
     api = TimeTreeApi(csrf_token)
     calendar = api.get_calendar('zizBvYcXdFur')
-    print(calendar.data.attributes)
+    calendar_json = json.load(calendar)
+    print(calendar_json)
+    # print(calendar_json.toString())
+    # print(calendar.data.attributes)
+
 
     oauth_authorize_url = TimeTreeApi.get_oauth_authorize_url(client_id, redirect_uri, 'code', csrf_token)
     print(oauth_authorize_url)
