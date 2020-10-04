@@ -80,10 +80,10 @@ def pixabay_isch(event):
 @app.route("/callBackTimeTreeApi", methods=['GET'])
 def callBackTimeTreeApi():
 
-    csrf_token = "2L85_J9K3iJ1GpB1Q9ednzzJ9JmcLnsWii4lpnAxOSotki-M"
+    csrf_token = "bEWJkgE2sU9-7FKEVIdItGhgw9bBGNf3wxkhHvv_moLJW9gw"
     api = TimeTreeApi(csrf_token)
-    calendar = api.get_calendar('TestApi')
-    print(calendar.data)
+    calendar = api.get_calendar('zizBvYcXdFur')
+    print(calendar.data.attributes.name)
     # calendar name
     # api-endpoint
     # location given here
