@@ -80,10 +80,15 @@ def pixabay_isch(event):
 @app.route("/callBackTimeTreeApi", methods=['GET'])
 def callBackTimeTreeApi():
 
+    redirect_uri = "https://lineboteddie.herokuapp.com/callBackTimeTreeApi"
     csrf_token = "bEWJkgE2sU9-7FKEVIdItGhgw9bBGNf3wxkhHvv_moLJW9gw"
+    client_id = "YSQLrHS4gy7nEPBQAOuYugsfDxb1UkLjV7Q5NkilEn8"
     api = TimeTreeApi(csrf_token)
     calendar = api.get_calendar('zizBvYcXdFur')
     print(calendar.data.attributes.name)
+
+    oauth_authorize_url = TimeTreeApi.get_oauth_authorize_url(client_id, redirect_uri, 'code', csrf_token)
+    print(oauth_authorize_url)
     return render_template("home.html")
 
     # calendar name
