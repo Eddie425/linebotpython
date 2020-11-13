@@ -2,3 +2,26 @@ curl \
   -H "Accept: application/vnd.timetree.v1+json" \
   -H "Authorization: Bearer bEWJkgE2sU9-7FKEVIdItGhgw9bBGNf3wxkhHvv_moLJW9gw" \
   https://timetreeapis.com/calendars?include=labels,members
+
+
+
+curl \
+  -H "Accept: application/vnd.timetree.v1+json" \
+  -H "Authorization: Bearer bEWJkgE2sU9-7FKEVIdItGhgw9bBGNf3wxkhHvv_moLJW9gw" \
+  https://timetreeapis.com/calendars/1234/labels
+
+
+
+
+  https://timetreeapp.com/oauth/authorize?client_id=YSQLrHS4gy7nEPBQAOuYugsfDxb1UkLjV7Q5NkilEn8&redirect_uri=https%3A%2F%2Flineboteddie.herokuapp.com%2FcallBackTimeTreeApi&response_type=code
+
+
+  吉立富資訊管理股份有限公司
+
+
+
+
+  "exception":"org.springframework.context.ApplicationContextException: Failed to start bean 'cacheInitialize'; nested exception is org.springframework.data.redis.serializer.SerializationException: Could not read JSON: Unrecognized field \"briefs\" (class com.jftech.sice.api.news.bean.DailyInfo), not marked as ignorable (5 known properties: \"title\", \"content\", \"dailyChartList\", \"sno\", \"date\"])\n at [Source: (byte[])\"[\"com.jftech.sice.api.cache.bean.CacheBean\",{\"data\":[\"com.jftech.sice.api.news.bean.DailyInfo\",{\"sno\":\"569\",\"date\":\"/Date(1602432000000)/\",\"title\":\"併購利多及財政政策
+
+
+  
