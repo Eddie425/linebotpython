@@ -46,7 +46,7 @@ def home():
 
 @app.route("/index")
 def index():
-    
+
     python_records = call_database.web_select_overall()
     return render_template("index.html", html_records=python_records)
 
@@ -92,8 +92,8 @@ def callBackTimeTreeApi():
     # print(calendar.data.attributes)
 
 
-    oauth_authorize_url = TimeTreeApi.get_oauth_authorize_url(client_id, redirect_uri, 'code', csrf_token)
-    print(oauth_authorize_url)
+    # oauth_authorize_url = TimeTreeApi.get_oauth_authorize_url(client_id, redirect_uri, 'code', csrf_token)
+    # print(oauth_authorize_url)
     return render_template("home.html")
 
     # calendar name
