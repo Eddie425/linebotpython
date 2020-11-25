@@ -46,9 +46,7 @@ def home():
 
 @app.route("/index")
 def index():
-    # calldatabase = call_database()
-    client_model = request.headers['client_model']
-    print(client_model)
+    
     python_records = call_database.web_select_overall()
     return render_template("index.html", html_records=python_records)
 
