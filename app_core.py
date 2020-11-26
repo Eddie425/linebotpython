@@ -60,7 +60,7 @@ def pixabay_isch(event):
         if event.message.text == "Hello":
             line_bot_api.reply_message(
                 event.reply_token,
-                TextSendMessage(text="Hi 傻逼！")
+                TextSendMessage(text="Hi 傻逼！" + event.source.user_id)
             )
 
         if event.message.text == "time":
