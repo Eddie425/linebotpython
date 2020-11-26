@@ -60,7 +60,7 @@ def pixabay_isch(event):
         if event.message.text == "Hello":
             line_bot_api.reply_message(
                 event.reply_token,
-                TextSendMessage(text="Hi 傻逼！" + event.source.user_id)
+                TextSendMessage(text="Hi 傻逼！")
             )
 
         if event.message.text == "time":
@@ -69,11 +69,12 @@ def pixabay_isch(event):
                 TextSendMessage(text=event.timestamp)
             )
 
-        if event.source.user_id != "Udeadbeefdeadbeefdeadbeefdeadbeef":
+        if "https://" in event.message.text:
             line_bot_api.reply_message(
                 event.reply_token,
-                TextSendMessage(text=event.message.text)
+                TextSendMessage(text="user_id = " + event.source.user_id)
             )
+
 
 
 # callBackTimeTreeApi
