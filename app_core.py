@@ -54,7 +54,7 @@ def index():
 # get msg from user
 @handler.add(MessageEvent, message=TextMessage)
 def pixabay_isch(event):
-
+    print(event)
     if event.source.user_id != "Udeadbeefdeadbeefdeadbeefdeadbeef":
 
         if event.message.text == "Hello":
