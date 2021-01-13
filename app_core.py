@@ -90,15 +90,14 @@ def callBackTimeTreeApi():
     print(" Calendar = " + calendar.data.attributes)
 
     events = api.get_upcoming_events('zizBvYcXdFur', 'Asia/Taiwan', 7)
-    print(events.data[0].attributes.title) # most recent event title in 7 days
+    print(events.data[0].attributes.title)
+    # most recent event title in 7 days
     # for k, v in calendar:
     #     print(k, v)
     # calendar_json = json.dumps(calendar.data.__dict__)
     # print(calendar_json)
     # print(calendar_json.toString())
     # print(calendar.data.attributes)
-
-    # oauth_authorize_url = TimeTreeApi.get_oauth_authorize_url(client_id, redirect_uri, 'code', csrf_token)
     # print(oauth_authorize_url)
     return render_template("home.html")
 
