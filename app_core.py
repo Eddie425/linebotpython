@@ -87,7 +87,7 @@ def callBackTimeTreeApi():
     api = TimeTreeApi(csrf_token)
     calendar = api.get_calendar('zizBvYcXdFur')
 
-    print(" Calendar = " + calendar.data.attributes)
+    print(" Calendar = " + calendar.data.attributes.name)
 
     events = api.get_upcoming_events('zizBvYcXdFur', 'Asia/Taiwan', 7)
     print(events.data[0].attributes.title)
