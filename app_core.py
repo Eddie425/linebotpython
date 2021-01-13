@@ -87,7 +87,7 @@ def callBackTimeTreeApi():
     api = TimeTreeApi(csrf_token)
     calendar = api.get_calendar('zizBvYcXdFur')
 
-    print(" Calendar = " + calendar.data.attributes.name)
+    print(" Calendar = " + calendar.data.attributes)
     # for k, v in calendar:
     #     print(k, v)
     # calendar_json = json.dumps(calendar.data.__dict__)
