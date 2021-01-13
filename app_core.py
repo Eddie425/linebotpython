@@ -88,6 +88,9 @@ def callBackTimeTreeApi():
     calendar = api.get_calendar('zizBvYcXdFur')
 
     print(" Calendar = " + calendar.data.attributes)
+
+    events = api.get_upcoming_events('zizBvYcXdFur', 'Asia/Taiwan', 7)
+    print(events.data[0].attributes.title) # most recent event title in 7 days
     # for k, v in calendar:
     #     print(k, v)
     # calendar_json = json.dumps(calendar.data.__dict__)
