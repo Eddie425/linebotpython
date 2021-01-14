@@ -90,7 +90,17 @@ def callBackTimeTreeApi():
     print(" Calendar = " + calendar.data.attributes.name)
 
     events = api.get_upcoming_events('zizBvYcXdFur', 'Asia/Taiwan', 7)
-    print(events.data[0].attributes.title)
+    print("title : " + events.data[0].attributes.title)
+    print("category : " + events.data[0].attributes.category)
+    print("all_day : " + events.data[0].attributes.all_day)
+    print("start_at : " + events.data[0].attributes.start_at)
+    print("start_timezone : " + events.data[0].attributes.start_timezone)
+    print("end_at : " + events.data[0].attributes.end_at)
+    print("end_timezone : " + events.data[0].attributes.end_timezone)
+    print("description : " + events.data[0].attributes.description)
+    print("location : " + events.data[0].attributes.location)
+    print("url : " + events.data[0].attributes.url)
+    print("title : " + events.data[0].attributes.label)
     # most recent event title in 7 days
     # for k, v in calendar:
     #     print(k, v)
