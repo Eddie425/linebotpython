@@ -113,7 +113,7 @@ def pixabay_isch(event):
             calendar = api.get_calendar('zizBvYcXdFur')
             print(" Calendar = " + calendar.data.attributes.name)
 
-            events = api.get_upcoming_events('zizBvYcXdFur', 'Asia/Taiwan', 30)
+            events = api.get_upcoming_events('zizBvYcXdFur', 'Asia/Taipei', 30)
             print("title : " + events.data[0].attributes.title)
             print("category : " + events.data[0].attributes.category)
             print("all_day : " + str(events.data[0].attributes.all_day))
@@ -148,7 +148,7 @@ def callBackTimeTreeApi():
 
     print(" Calendar = " + calendar.data.attributes.name)
 
-    events = api.get_upcoming_events('zizBvYcXdFur', 'Asia/Taiwan', 7)
+    events = api.get_upcoming_events('zizBvYcXdFur', 'Asia/Taipei', 30)
     print("title : " + events.data[0].attributes.title)
     print("category : " + events.data[0].attributes.category)
     print("all_day : " + str(events.data[0].attributes.all_day))
