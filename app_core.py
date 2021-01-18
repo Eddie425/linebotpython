@@ -91,20 +91,20 @@ def pixabay_isch(event):
                         start_timezone='Asia/Taipei',
                         end_timezone='Asia/Taipei'
                     ),
-                    # relationships=EventRelationships(
-                    #     label=EventRelationshipsLabel(
-                    #         data=EventRelationshipsLabelData(
-                    #             id='LABEL_ID',
-                    #             type='label'
-                    #         )
-                    #     ),
-                    #     attendees=EventRelationshipsAttendees(
-                    #         data=[EventRelationshipsAttendeesData(
-                    #             id='USER_ID',
-                    #             type='user'
-                    #         )]
-                    #     )
-                    # )
+                    relationships=EventRelationships(
+                        label=EventRelationshipsLabel(
+                            data=EventRelationshipsLabelData(
+                                id='1',
+                                type='label'
+                            )
+                        ),
+                        # attendees=EventRelationshipsAttendees(
+                        #     data=[EventRelationshipsAttendeesData(
+                        #         id='USER_ID',
+                        #         type='user'
+                        #     )]
+                        # )
+                    )
                 )
             )
             response = api.create_event('zizBvYcXdFur', event)
