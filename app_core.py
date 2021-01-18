@@ -100,7 +100,7 @@ def callBackTimeTreeApi():
     print("description : " + events.data[0].attributes.description)
     print("location : " + events.data[0].attributes.location)
     # print("url : " + events.data[0].attributes.url)
-    print("title : " + events.data[0].attributes.label)
+    # print("title : " + events.data[0].attributes.label)
     # most recent event title in 7 days
     # for k, v in calendar:
     #     print(k, v)
