@@ -84,8 +84,8 @@ def pixabay_isch(event):
                         title='Zoe Teacher',
                         category='schedule',
                         all_day=False,
-                        start_at='2021-01-27T11:00:00.000Z',
-                        end_at='2021-01-27T13:00:00.000Z',
+                        start_at='2021-01-28T11:00:00.000Z',
+                        end_at='2021-01-28T13:00:00.000Z',
                         description='Description',
                         location='Taipei',
                         start_timezone='Asia/Taipei',
@@ -113,7 +113,7 @@ def pixabay_isch(event):
             calendar = api.get_calendar('zizBvYcXdFur')
             print(" Calendar = " + calendar.data.attributes.name)
 
-            events = api.get_upcoming_events('zizBvYcXdFur', 'Asia/Taiwan', 7)
+            events = api.get_upcoming_events('zizBvYcXdFur', 'Asia/Taiwan', 30)
             print("title : " + events.data[0].attributes.title)
             print("category : " + events.data[0].attributes.category)
             print("all_day : " + str(events.data[0].attributes.all_day))
