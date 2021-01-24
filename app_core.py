@@ -75,17 +75,16 @@ def pixabay_isch(event):
 
         if event.message.text == "event":
 
-            client_id = "YSQLrHS4gy7nEPBQAOuYugsfDxb1UkLjV7Q5NkilEn8"
             api = TimeTreeApi(csrf_token)
 
-            timeTreeEvent = Event(
+            time_tree_event = Event(
                 data=EventData(
                     attributes=EventAttributes(
                         title='Zoe Teacher',
                         category='schedule',
                         all_day=False,
-                        start_at='2021-01-20T11:00:00.000Z',
-                        end_at='2021-01-20T13:00:00.000Z',
+                        start_at='2021-01-27T11:00:00.000Z',
+                        end_at='2021-01-27T13:00:00.000Z',
                         description='TEST',
                         location='Taipei',
                         start_timezone='Asia/Taipei',
@@ -107,7 +106,7 @@ def pixabay_isch(event):
                     )
                 )
             )
-            response = api.create_event('zizBvYcXdFur', timeTreeEvent)
+            response = api.create_event('zizBvYcXdFur', time_tree_event)
             print(response.data.attributes.title)  # Title
 
             calendar = api.get_calendar('zizBvYcXdFur')
@@ -136,7 +135,6 @@ def pixabay_isch(event):
                                 + "  description : " + events.data[0].attributes.description
                                 + "  location : " + events.data[0].attributes.location)
             )
-
 
         if "https://" in event.message.text:
             line_bot_api.reply_message(
