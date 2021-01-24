@@ -154,8 +154,8 @@ def callBackTimeTreeApi():
     calendar = api.get_calendar('zizBvYcXdFur')
 
     print(" Calendar = " + calendar.data.attributes.name)
-    print(" Calendar labels id = " + calendar.data.relationships.labels.data[0].id)
-    print(" Calendar labels type = " + calendar.data.relationships.labels.data[0].type)
+    print(" Calendar labels id = " + calendar.data.relationships.labels[0].id)
+    print(" Calendar labels type = " + calendar.data.relationships.labels[0].type)
 
     # events = api.get_upcoming_events('zizBvYcXdFur', 'Asia/Taipei', 30)
     # print("title : " + events.data[0].attributes.title)
