@@ -1,3 +1,4 @@
+from __future__ import print_function
 from __future__ import unicode_literals
 
 from flask import Flask, request, abort, render_template
@@ -6,7 +7,14 @@ from linebot import LineBotApi, WebhookHandler
 from linebot.exceptions import InvalidSignatureError
 from linebot.models import MessageEvent, TextMessage, TextSendMessage, ImageSendMessage
 from timetree_sdk import TimeTreeApi
+from googleapiclient.discovery import build
+from google_auth_oauthlib.flow import InstalledAppFlow
+from google.auth.transport.requests import Request
 import configparser
+import datetime
+import pickle
+import os.path
+
 
 import requests
 import json
@@ -68,10 +76,27 @@ def pixabay_isch(event):
             )
 
         if event.message.text == "time":
-            line_bot_api.reply_message(
-                event.reply_token,
-                TextSendMessage(text=event.timestamp)
-            )
+            event.reply({
+                "type": 'template',
+                "altText": 'this is a buttons template',
+                "template": {
+                    "type": 'buttons',
+                    "thumbnailImageUrl": 'https://example.com/bot/images/image.jpg',
+                    "title": '開啟菜單',
+                    "text": '❗️注意:請先確認您line版本在7.12.0以上',
+                    "actions": [{
+                        "type": 'datetimepicker',
+                        "label": '我要新增',
+                        "data": 'create',
+                        "mode": 'datetime',
+                    }, {
+                        "type": 'datetimepicker',
+                        "label": '我要查詢',
+                        "data": 'search',
+                        "mode": 'datetime',
+                    }]
+                }
+            })
 
         if event.message.text == "event":
 
