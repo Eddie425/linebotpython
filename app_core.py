@@ -7,17 +7,7 @@ from linebot import LineBotApi, WebhookHandler
 from linebot.exceptions import InvalidSignatureError
 from linebot.models import MessageEvent, TextMessage, TextSendMessage, ImageSendMessage
 from timetree_sdk import TimeTreeApi
-from googleapiclient.discovery import build
-from google_auth_oauthlib.flow import InstalledAppFlow
-from google.auth.transport.requests import Request
 import configparser
-import datetime
-import pickle
-import os.path
-
-
-import requests
-import json
 
 from timetree_sdk.models import Event, EventData, EventAttributes, EventRelationships, EventRelationshipsLabel, \
     EventRelationshipsLabelData, EventRelationshipsAttendees, EventRelationshipsAttendeesData
@@ -98,138 +88,11 @@ def pixabay_isch(event):
                 }
             })
 
-        if event.message.text == "event":
-
-            api = TimeTreeApi(csrf_token)
-
-            time_tree_event = Event(
-                data=EventData(
-                    attributes=EventAttributes(
-                        title='Zoe Teacher',
-                        category='schedule',
-                        all_day=False,
-                        start_at='2021-01-27T11:00:00.000Z',
-                        end_at='2021-01-27T13:00:00.000Z',
-                        description='TEST',
-                        location='Taipei',
-                        start_timezone='Asia/Taipei',
-                        end_timezone='Asia/Taipei'
-                    ),
-                    relationships=EventRelationships(
-                        label=EventRelationshipsLabel(
-                            data=EventRelationshipsLabelData(
-                                id='1',
-                                type='label'
-                            )
-                        ),
-                        # attendees=EventRelationshipsAttendees(
-                        #     data=[EventRelationshipsAttendeesData(
-                        #         id='USER_ID',
-                        #         type='user'
-                        #     )]
-                        # )
-                    )
-                )
-            )
-            response = api.create_event('zizBvYcXdFur', time_tree_event)
-            print(response.data.attributes.title)  # Title
-
-            calendar = api.get_calendar('zizBvYcXdFur')
-            print(" Calendar = " + calendar.data.attributes.name)
-
-            events = api.get_upcoming_events('zizBvYcXdFur', 'Asia/Taipei', 30)
-            print("title : " + events.data[0].attributes.title)
-            print("category : " + events.data[0].attributes.category)
-            print("all_day : " + str(events.data[0].attributes.all_day))
-            print("start_at : " + events.data[0].attributes.start_at)
-            print("start_timezone : " + events.data[0].attributes.start_timezone)
-            print("end_at : " + events.data[0].attributes.end_at)
-            print("end_timezone : " + events.data[0].attributes.end_timezone)
-            print("description : " + events.data[0].attributes.description)
-            print("location : " + events.data[0].attributes.location)
-
-            line_bot_api.reply_message(
-                event.reply_token,
-                TextSendMessage(text="Create Event OK~" + "  title : " + events.data[0].attributes.title
-                                + "  category : " + events.data[0].attributes.category
-                                + "  all_day : " + str(events.data[0].attributes.all_day)
-                                + "  start_at : " + events.data[0].attributes.start_at
-                                + "  start_timezone : " + events.data[0].attributes.start_timezone
-                                + "  end_at : " + events.data[0].attributes.end_at
-                                + "  end_timezone : " + events.data[0].attributes.end_timezone
-                                + "  description : " + events.data[0].attributes.description
-                                + "  location : " + events.data[0].attributes.location)
-            )
-
         if "https://" in event.message.text:
             line_bot_api.reply_message(
                 event.reply_token,
                 TextSendMessage(text="user_id = " + event.source.user_id)
             )
-
-
-# callBackTimeTreeApi
-# 接收 LINE 的資訊
-@app.route("/callBackTimeTreeApi", methods=['GET'])
-def callBackTimeTreeApi():
-
-    redirect_uri = "https://lineboteddie.herokuapp.com/callBackTimeTreeApi"
-    # client_id = "YSQLrHS4gy7nEPBQAOuYugsfDxb1UkLjV7Q5NkilEn8"
-    api = TimeTreeApi(csrf_token)
-    calendar = api.get_calendar('zizBvYcXdFur')
-
-    print(" Calendar = " + calendar.data.attributes.name)
-    print(" Calendar labels id = " + str(calendar.data.relationships.labels[0]))
-    print(" Calendar labels id = " + str(calendar.included))
-    # print(" Calendar labels type = " + calendar.data.relationships.labels[0])
-
-    # events = api.get_upcoming_events('zizBvYcXdFur', 'Asia/Taipei', 30)
-    # print("title : " + events.data[0].attributes.title)
-    # print("category : " + events.data[0].attributes.category)
-    # print("all_day : " + str(events.data[0].attributes.all_day))
-    # print("start_at : " + events.data[0].attributes.start_at)
-    # print("start_timezone : " + events.data[0].attributes.start_timezone)
-    # print("end_at : " + events.data[0].attributes.end_at)
-    # print("end_timezone : " + events.data[0].attributes.end_timezone)
-    # print("description : " + events.data[0].attributes.description)
-    # print("location : " + events.data[0].attributes.location)
-    # print("url : " + events.data[0].attributes.url)
-    # print("title : " + events.data[0].attributes.label)
-    # most recent event title in 7 days
-    # for k, v in calendar:
-    #     print(k, v)
-    # calendar_json = json.dumps(calendar.data.__dict__)
-    # print(calendar_json)
-    # print(calendar_json.toString())
-    # print(calendar.data.attributes)
-    # print(oauth_authorize_url)
-    return render_template("home.html")
-
-    # calendar name
-    # api-endpoint
-    # location given here
-    # location = "delhi technological university"
-    # defining a params dict for the parameters to be sent to the API
-    # PARAMS = {'address': location}
-    # sending get request and saving the response as response object
-    # r = requests.get(url=URL)
-
-    # extracting data in json format
-    # data = r.json()
-
-    # responseStr = r.text
-    # extracting latitude, longitude and formatted address
-    # of the first matching location
-    # latitude = data['results'][0]['geometry']['location']['lat']
-    # longitude = data['results'][0]['geometry']['location']['lng']
-    # formatted_address = data['results'][0]['formatted_address']
-
-    # try:
-    #     handler.handle(body, signature)
-    # except InvalidSignatureError:
-    #     abort(400)
-
-    # return 'OK' + responseStr
 
 
 if __name__ == "__main__":
